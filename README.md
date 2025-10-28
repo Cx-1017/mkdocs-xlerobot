@@ -1,296 +1,209 @@
 # XLeRobot 项目文档
 
-## ✅ 项目已成功构建！
-
-你的 XLeRobot 博客网站已经创建完成！以下是项目的完整信息：
+基于 MkDocs Material 构建的 XLeRobot 项目分析文档。
 
 ## 📁 项目结构
 
 ```
 documents/
 ├── docs/                    # 文档源文件
-│   ├── index.md            # 首页 ✅
-│   ├── faq.md              # 常见问题 ✅
-│   ├── overview/           # 项目概述
-│   │   ├── introduction.md     # 项目介绍 ✅
-│   │   ├── links.md           # 相关链接 ✅
-│   │   └── tech-stack.md      # 技术栈 ✅
-│   ├── learning/           # 学习资源
-│   │   ├── python.md              # Python语法 ✅
-│   │   ├── 3d-modeling.md         # 3D建模 ✅
-│   │   ├── raspberry-pi.md        # 树莓派 (待完善)
-│   │   ├── computer-vision.md     # 计算机视觉 (待完善)
-│   │   ├── motors-robotics.md     # 电机机器人 (待完善)
-│   │   ├── communication.md       # 通讯技术 (待完善)
-│   │   └── reinforcement-learning.md  # 强化学习 (待完善)
-│   ├── hardware/           # 硬件配置
-│   │   ├── components.md      # 硬件清单 (待完善)
-│   │   └── assembly.md        # 组装指南 (待完善)
-│   ├── software/           # 软件配置
-│   │   ├── environment.md     # 环境搭建 (待完善)
-│   │   └── dependencies.md    # 依赖安装 (待完善)
-│   ├── development/        # 项目开发
-│   │   ├── quickstart.md      # 快速开始 (待完善)
-│   │   └── code-structure.md  # 代码结构 (待完善)
-│   └── stylesheets/
-│       └── extra.css      # 自定义样式 ✅
-├── mkdocs.yml             # 配置文件 ✅
-├── requirements.txt       # Python依赖 ✅
-└── site/                  # 构建输出 (自动生成)
+│   ├── index.md            # XLeRobot项目分析（首页）
+│   ├── image/              # 文档图片资源
+│   └── stylesheets/        # 自定义样式
+├── mkdocs.yml              # MkDocs 配置文件
+├── requirements.txt        # Python 依赖
+├── .github/
+│   └── workflows/
+│       └── ci.yml          # GitHub Actions 自动部署配置
+└── site/                   # 构建输出（自动生成）
 ```
 
-## 🚀 部署到 GitHub Pages
+## 🚀 快速开始
 
-### 方法 1: 使用 mkdocs gh-deploy 命令
+### 安装依赖
 
-```powershell
-# 确保在 mkdocs 环境中
+```bash
+# 创建虚拟环境
+conda create -n mkdocs python=3.11
 conda activate mkdocs
 
-# 一键部署
-mkdocs gh-deploy
+# 安装依赖
+pip install -r requirements.txt
 ```
 
-这个命令会自动：
+### 本地预览
 
-1. 构建网站到 `site/` 目录
-2. 创建 `gh-pages` 分支
-3. 推送到 GitHub
-4. 网站将发布到: https://cx-1017.github.io/mkdocs-xlerobot/
-
-### 方法 2: 使用 GitHub Actions (推荐)
-
-你的 `.github/workflows/ci.yml` 已经配置好了，只需：
-
-```powershell
-# 1. 提交所有文件
-git add .
-git commit -m "✨ 创建 XLeRobot 博客网站"
-
-# 2. 推送到 GitHub
-git push origin main
-```
-
-GitHub Actions 会自动构建和部署网站！
-
-## 📝 本地开发
-
-### 启动开发服务器
-
-```powershell
-# 激活环境
-conda activate mkdocs
-
-# 启动服务器 (带热重载)
+```bash
+# 启动开发服务器（支持热重载）
 mkdocs serve
-```
 
-访问: http://127.0.0.1:8000
+# 访问 http://127.0.0.1:8000
+```
 
 ### 构建网站
 
-```powershell
-# 普通构建
+```bash
+# 构建静态网站到 site/ 目录
 mkdocs build
 
-# 严格模式 (警告视为错误)
+# 严格模式（警告视为错误）
 mkdocs build --strict
 ```
 
-## 🎨 已完成的功能
+## 📦 部署到 GitHub Pages
 
-### ✅ 核心配置
+### 方法 1: 使用 mkdocs 命令（推荐）
 
-- [x] MkDocs Material 主题
-- [x] 中文语言支持
-- [x] 日间/夜间模式切换
-- [x] 搜索功能 (中英文)
-- [x] 代码高亮和复制
-- [x] Git 修订日期显示
-- [x] 导航标签和索引
+```bash
+# 一键部署到 gh-pages 分支
+mkdocs gh-deploy
+```
 
-### ✅ 已创建页面
+该命令会自动：
+1. 构建网站到 `site/` 目录
+2. 创建/更新 `gh-pages` 分支
+3. 推送到 GitHub
+4. 网站将发布到: https://cx-1017.github.io/mkdocs-xlerobot/
 
-- [x] 首页 - 项目介绍和快速导航
-- [x] 项目概述
-  - [x] 项目介绍 - 详细的项目说明
-  - [x] 相关链接 - GitHub、B 站、文档等
-  - [x] 技术栈 - 完整的技术列表
-- [x] 学习资源
-  - [x] Python 语法 - dataclass、类型提示等
-  - [x] 3D 建模 - SolidWorks 教程
-- [x] 常见问题 FAQ - 14 个常见问题解答
+### 方法 2: 使用 GitHub Actions
 
-### ✅ 样式和功能
+项目已配置 GitHub Actions，只需推送代码：
 
-- [x] 自定义 CSS 样式
-- [x] Markdown 扩展 (警告框、代码块、表格等)
-- [x] Mermaid 图表支持
-- [x] 数学公式支持 (KaTeX)
-- [x] 任务列表、标签页等
+```bash
+git add .
+git commit -m "更新文档"
+git push origin main
+```
 
-## 📋 待完善内容
+GitHub Actions 会自动构建并部署到 GitHub Pages。
 
-以下页面已创建占位符，可以逐步完善：
+## 🎨 功能特性
 
-1. **学习资源**
+- ✅ Material Design 主题
+- ✅ 中文语言支持
+- ✅ 日间/夜间模式切换
+- ✅ 搜索功能（中英文）
+- ✅ 代码高亮和复制
+- ✅ Git 修订日期显示
+- ✅ Markdown 扩展语法
+- ✅ 自定义样式
 
-   - [ ] 树莓派 & Linux 系统
-   - [ ] 计算机视觉 (YOLO/OpenCV)
-   - [ ] 电机与机器人学
-   - [ ] 通讯技术 (串口/ZMQ)
-   - [ ] 强化学习 (MuJoCo/ManiSkill)
+## 📝 编辑文档
 
-2. **硬件配置**
+文档采用 Markdown 格式，编辑 `docs/index.md` 即可更新内容。
 
-   - [ ] 硬件清单和 BOM
-   - [ ] 组装指南和步骤
+### 支持的 Markdown 扩展
 
-3. **软件配置**
+```markdown
+# 警告框
+!!! note "注意"
+    这是一个提示框
 
-   - [ ] 详细环境搭建步骤
-   - [ ] 依赖安装说明
+# 代码块
+```python
+print("Hello World")
+\`\`\`
 
-4. **项目开发**
-   - [ ] 快速开始指南
-   - [ ] 代码结构说明
+# 表格
+| 列1 | 列2 |
+|-----|-----|
+| A   | B   |
+
+# 按钮
+[访问 GitHub](https://github.com/Vector-Wangel/XLeRobot){ .md-button }
+```
 
 ## 🔧 配置说明
 
-### mkdocs.yml 配置
+### mkdocs.yml
+
+核心配置：
 
 ```yaml
 site_name: XLeRobot 项目文档
 site_url: https://cx-1017.github.io/mkdocs-xlerobot/
 repo_url: https://github.com/Vector-Wangel/XLeRobot
 
-# 主题配置
 theme:
   name: material
   language: zh
-  palette: # 日间/夜间模式
-  features: # 导航、搜索、代码等功能
 
-# 插件
-plugins:
-  - search # 搜索
-  - git-revision-date-localized # Git 日期
-
-# Markdown 扩展
-markdown_extensions:
-  - admonition # 警告框
-  - pymdownx.highlight # 代码高亮
-  - pymdownx.superfences # 代码块
-  # ... 更多扩展
+nav:
+  - 首页: index.md
 ```
 
 ### requirements.txt
 
-包含所有必需的 Python 包：
+Python 依赖包：
 
-- mkdocs >= 1.5.0
-- mkdocs-material >= 9.5.0
-- Git 相关插件
-- Markdown 扩展
+- `mkdocs>=1.5.0` - MkDocs 核心
+- `mkdocs-material>=9.5.0` - Material 主题
+- `mkdocs-git-revision-date-localized-plugin` - Git 日期插件
+- `markdown-callouts` - Callout 支持
 
-## 🎯 下一步操作
+## 🌐 网站地址
 
-### 1. 本地测试
+- **在线文档**: https://cx-1017.github.io/mkdocs-xlerobot/
+- **项目仓库**: https://github.com/Vector-Wangel/XLeRobot
 
-```powershell
-# 启动服务器
-mkdocs serve
+## 📖 文档内容
 
-# 访问 http://127.0.0.1:8000 查看效果
-```
+当前文档包含 XLeRobot 项目的完整分析，包括：
 
-### 2. 完善内容
+- 项目简介和官方资源
+- 技术架构（硬件、软件、通讯系统）
+- 核心技术栈
+- 关键技术特性
+- 项目文档指引
 
-根据 `XLeRobot项目分析.md` 文件，完善各个待完善的页面。
+## 💡 开发提示
 
-### 3. 部署到 GitHub
+### 添加图片
 
-```powershell
-# 方法1: 直接部署
-mkdocs gh-deploy
-
-# 方法2: 推送后自动部署
-git push origin main
-```
-
-### 4. 访问网站
-
-部署成功后，访问: **https://cx-1017.github.io/mkdocs-xlerobot/**
-
-## 💡 使用提示
-
-### 编辑文档
-
-只需编辑 `docs/` 目录下的 Markdown 文件，MkDocs 会自动：
-
-- 转换为 HTML
-- 生成导航
-- 应用主题样式
-- 创建搜索索引
-
-### 添加新页面
-
-1. 在 `docs/` 对应目录创建 `.md` 文件
-2. 在 `mkdocs.yml` 的 `nav` 部分添加导航链接
-
-### Markdown 语法
-
-支持标准 Markdown + 扩展语法：
+将图片放在 `docs/image/` 目录，然后在 Markdown 中引用：
 
 ```markdown
-# 警告框
-
-!!! tip "提示"
-这是一个提示框
-
-# 代码块
-
-\`\`\`python
-print("Hello World")
-\`\`\`
-
-# 按钮
-
-[访问 GitHub](https://github.com){ .md-button }
-
-# 表格
-
-| 列 1   | 列 2   |
-| ------ | ------ |
-| 内容 1 | 内容 2 |
+![图片描述](image/your-image.png)
 ```
 
-## 🎉 总结
+### 自定义样式
 
-你的 XLeRobot 博客网站已经搭建完成！
+编辑 `docs/stylesheets/extra.css` 文件可以添加自定义样式。
 
-**已完成**:
-✅ 完整的网站结构  
-✅ 美观的 Material 主题  
-✅ 丰富的文档内容  
-✅ 自动化部署配置
+### 实时预览
 
-**网站地址**: https://cx-1017.github.io/mkdocs-xlerobot/
+使用 `mkdocs serve` 命令会启动实时预览服务器，修改文档后浏览器会自动刷新。
 
-**下一步**: 推送到 GitHub 即可自动部署！
+## 🎯 部署流程
 
-```powershell
+```bash
+# 1. 编辑文档
+vim docs/index.md
+
+# 2. 本地预览
+mkdocs serve
+
+# 3. 测试构建
+mkdocs build
+
+# 4. 部署到 GitHub Pages
+mkdocs gh-deploy
+
+# 或者推送到 GitHub 让 Actions 自动部署
 git add .
-git commit -m "🚀 完成 XLeRobot 博客网站搭建"
+git commit -m "更新文档"
 git push origin main
 ```
+
+## 📞 联系方式
+
+- GitHub Issues: [提交问题](https://github.com/Vector-Wangel/XLeRobot/issues)
+- B站视频: [XLeRobot 演示](https://www.bilibili.com/video/BV1bbaFzLEga)
 
 ---
 
 <div align="center">
 
 **祝你的 XLeRobot 项目顺利！** 🤖✨
-
-如有问题，欢迎查看 [FAQ](docs/faq.md)
 
 </div>

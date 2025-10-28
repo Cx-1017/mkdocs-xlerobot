@@ -85,7 +85,7 @@ markdown_extensions:
 
 # 导航结构
 nav:
-  - XLeRobot项目分析: XLeRobot项目分析.md
+  - 首页: index.md
 
 # 额外配置
 extra:

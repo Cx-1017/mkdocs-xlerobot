@@ -64,7 +64,7 @@ dataclass 修饰器作用:[Python 中更加高效定义对象——dataclass 装
 
 #### 树莓派学习
 
-1. 树莓派无线安装:https://blog.csdn.net/2301_79835444/article/details/142747112?fromshare=blogdetail&sharetype=blogdetail&sharerId=142747112&sharerefer=PC&sharesource=m0_74029092&sharefrom=from_link
+1. 树莓派无线安装: [博客教程](https://blog.csdn.net/2301_79835444/article/details/142747112?fromshare=blogdetail&sharetype=blogdetail&sharerId=142747112&sharerefer=PC&sharesource=m0_74029092&sharefrom=from_link)
 
 ```python
 # 常用开启vnc方式
@@ -107,8 +107,7 @@ Yolo 环境配置：[Yolov11 环境配置](https://xiaolian.blog.csdn.net/articl
 
 [CSDN 博客-配置相关内容](https://blog.csdn.net/weixin_41628708/article/details/139098755?fromshare=blogdetail&sharetype=blogdetail&sharerId=139098755&sharerefer=PC&sharesource=m0_74029092&sharefrom=from_link)
 
-Intel RealSense D415
-[github SDK：github.com/IntelRealSense/librealsense/releases](github.com/IntelRealSense/librealsense/releases)
+Intel RealSense D415：[github SDK](github.com/IntelRealSense/librealsense/releases)
 
 官网资料：[环境配置](https://dev.intelrealsense.com/docs/supported-platforms-and-languages?_ga=2.156964472.291999339.1661862516-1920419538.1609727088)
 
