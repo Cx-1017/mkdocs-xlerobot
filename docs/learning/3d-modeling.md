@@ -276,7 +276,7 @@ M5: 打印孔径 5.3mm, 攻丝 M5
 ## 🚀 下一步
 
 - [:material-printer-3d: 学习 3D 打印](../hardware/assembly.md)
-- [:material-robot: 机械臂运动学](motors-robotics.md#运动学)
+- [:material-robot: 机械臂运动学](motors-robotics.md)
 - [:material-book: 查看硬件清单](../hardware/components.md)
 
 !!! tip "实践建议"

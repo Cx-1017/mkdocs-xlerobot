@@ -2,4 +2,4 @@
 
 内容正在完善中...
 
-请参考 [XLeRobot 项目分析.md](../../XLeRobot项目分析.md) 中的 ST3215 舵机和运动学相关章节。
+请参考 [XLeRobot 项目分析.md](../XLeRobot项目分析.md) 中的 ST3215 舵机和运动学相关章节。

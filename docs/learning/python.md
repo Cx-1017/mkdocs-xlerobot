@@ -295,7 +295,7 @@ print(f"运行模式: {args.mode}")
 
 掌握 Python 基础后，可以继续学习：
 
-- [:material-linux: Linux 系统操作](raspberry-pi.md#linux-基础)
+- [:material-linux: Linux 系统操作](raspberry-pi.md)
 - [:material-camera: 计算机视觉](computer-vision.md)
 - [:material-robot: 机器人控制](motors-robotics.md)
 
