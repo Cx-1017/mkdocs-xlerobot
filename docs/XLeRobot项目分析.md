@@ -95,7 +95,7 @@ Yolo环境配置：[Yolov11环境配置](https://xiaolian.blog.csdn.net/article/
 [CSDN博客-配置相关内容](https://blog.csdn.net/weixin_41628708/article/details/139098755?fromshare=blogdetail&sharetype=blogdetail&sharerId=139098755&sharerefer=PC&sharesource=m0_74029092&sharefrom=from_link)
 
 Intel RealSense D415
-[github SDK：github.com/IntelRealSense/librealsense/releases](github.com/IntelRealSense/librealsense/releases)
+[github SDK：github.com/IntelRealSense/librealsense/releases](https://github.com/IntelRealSense/librealsense/releases)
 
 官网资料：[环境配置](https://dev.intelrealsense.com/docs/supported-platforms-and-languages?_ga=2.156964472.291999339.1661862516-1920419538.1609727088)
 

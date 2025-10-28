@@ -86,6 +86,7 @@ markdown_extensions:
 # 导航结构
 nav:
   - 首页: index.md
+  - 项目分析: XLeRobot项目分析.md
   - 项目概述:
       - 项目介绍: overview/introduction.md
       - 相关链接: overview/links.md
