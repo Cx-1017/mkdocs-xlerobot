@@ -6,16 +6,38 @@
 
 ```
 documents/
-├── docs/                    # 文档源文件
-│   ├── index.md            # XLeRobot项目分析（首页）
-│   ├── image/              # 文档图片资源
-│   └── stylesheets/        # 自定义样式
-├── mkdocs.yml              # MkDocs 配置文件
-├── requirements.txt        # Python 依赖
-├── .github/
-│   └── workflows/
-│       └── ci.yml          # GitHub Actions 自动部署配置
-└── site/                   # 构建输出（自动生成）
+├── docs/                          # 文档源文件
+│   ├── index.md                  # 首页
+│   ├── XLeRobot项目分析.md        # 完整项目分析
+│   ├── link/                     # 相关链接
+│   │   └── link.md
+│   ├── python_learn/             # Python语法学习
+│   │   └── python_learn.md
+│   ├── 3D_SolidWork/             # 3D建模教程
+│   │   └── 3D.md
+│   ├── Pi & Linux/               # 树莓派与Linux
+│   │   └── pi&Linux.md
+│   ├── Camera/                   # 计算机视觉
+│   │   └── Camera.md
+│   ├── Motor_Robot/              # 电机与机器人
+│   │   └── Motor_Robot.md
+│   ├── Communication/            # 通讯技术
+│   │   └── Communication.md
+│   ├── Model_Learn/              # 强化学习
+│   │   └── Model_learn.md
+│   ├── Attention/                # 注意事项
+│   │   └── Attention.md
+│   ├── image/                    # 文档图片资源
+│   │   ├── 机械臂示意图.png
+│   │   ├── Miniconda条款.png
+│   │   ├── 运动学逆解路径.png
+│   │   ├── ManiSkill数据集.png
+│   │   └── ManiSkill.png
+│   └── stylesheets/              # 自定义样式
+│       └── extra.css
+├── mkdocs.yml                    # MkDocs 配置文件
+├── requirements.txt              # Python 依赖
+└── site/                         # 构建输出（自动生成）
 ```
 
 ## 🚀 快速开始
@@ -60,6 +82,7 @@ mkdocs gh-deploy
 ```
 
 该命令会自动：
+
 1. 构建网站到 `site/` 目录
 2. 创建/更新 `gh-pages` 分支
 3. 推送到 GitHub
@@ -94,12 +117,14 @@ GitHub Actions 会自动构建并部署到 GitHub Pages。
 
 ### 支持的 Markdown 扩展
 
-```markdown
+````markdown
 # 警告框
+
 !!! note "注意"
-    这是一个提示框
+这是一个提示框
 
 # 代码块
+
 ```python
 print("Hello World")
 \`\`\`
@@ -112,6 +137,7 @@ print("Hello World")
 # 按钮
 [访问 GitHub](https://github.com/Vector-Wangel/XLeRobot){ .md-button }
 ```
+````
 
 ## 🔧 配置说明
 
@@ -146,15 +172,29 @@ Python 依赖包：
 - **在线文档**: https://cx-1017.github.io/mkdocs-xlerobot/
 - **项目仓库**: https://github.com/Vector-Wangel/XLeRobot
 
-## 📖 文档内容
+## � 文档内容
 
-当前文档包含 XLeRobot 项目的完整分析，包括：
+文档采用模块化组织结构：
 
-- 项目简介和官方资源
-- 技术架构（硬件、软件、通讯系统）
-- 核心技术栈
-- 关键技术特性
-- 项目文档指引
+### 📋 核心文档
+
+- **首页** (`index.md`) - 项目概览和快速导航
+- **完整项目分析** (`XLeRobot项目分析.md`) - 完整的项目技术分析
+
+### 📚 学习模块
+
+- **相关链接** - 项目 GitHub 仓库、B 站视频教程等资源链接
+- **Python 语法** - Python 编程语法和最佳实践
+- **3D 建模 SolidWork** - SolidWorks 3D 建模教程
+- **树莓派 & Linux** - 树莓派配置、Linux 命令、系统设置
+- **计算机视觉** - YOLO、OpenCV、RealSense 深度相机
+- **电机 & 机器人** - ST3215 舵机、运动学、机器人控制
+- **通讯** - 串口通讯、TCP、ZMQ、Socket 编程
+- **强化学习** - MuJoCo、ManiSkill、SAPIEN 仿真环境
+
+### ⚠️ 其他
+
+- **注意事项** - 开发过程中的重要提示和常见问题
 
 ## 💡 开发提示
 
@@ -198,7 +238,7 @@ git push origin main
 ## 📞 联系方式
 
 - GitHub Issues: [提交问题](https://github.com/Vector-Wangel/XLeRobot/issues)
-- B站视频: [XLeRobot 演示](https://www.bilibili.com/video/BV1bbaFzLEga)
+- B 站视频: [XLeRobot 演示](https://www.bilibili.com/video/BV1bbaFzLEga)
 
 ---
 

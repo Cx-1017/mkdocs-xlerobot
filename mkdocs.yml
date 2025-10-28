@@ -91,7 +91,18 @@ markdown_extensions:
 
 # 导航结构
 nav:
-  - XLeRobot技术文档: index.md
+  - 首页: index.md
+  - 相关链接: link/link.md
+  - 学习资源:
+      - Python语法: python_learn/python_learn.md
+      - 3D建模 SolidWork: 3D_SolidWork/3D.md
+      - 树莓派 & Linux: Pi & Linux/pi&Linux.md
+      - 计算机视觉: Camera/Camera.md
+      - 电机 & 机器人: Motor_Robot/Motor_Robot.md
+      - 通讯: Communication/Communication.md
+      - 强化学习: Model_Learn/Model_learn.md
+  - 注意事项: Attention/Attention.md
+  - 完整项目分析: XLeRobot项目分析.md
 
 # 额外配置
 extra:
