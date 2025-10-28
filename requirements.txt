@@ -1,0 +1,26 @@
+# MkDocs 核心和主题
+mkdocs>=1.5.0
+mkdocs-material>=9.5.0
+
+# Git 相关插件
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-authors-plugin
+mkdocs-git-committers-plugin-2
+
+# Markdown 扩展
+markdown-callouts
+pymdown-extensions
+
+# RSS 插件
+mkdocs-rss-plugin
+
+# RSS 插件依赖
+requests>=2.25.0
+python-dateutil>=2.8.0
+cachetools>=4.2.0
+
+# 可选插件（已注释，如需使用请取消注释）
+# mkdocs-minify-plugin
+# mkdocs-open-in-new-tab
+# mkdocs-glightbox
+# mkdocs-statistics-plugin
