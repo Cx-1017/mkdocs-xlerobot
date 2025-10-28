@@ -1,4 +1,125 @@
-site_name: My site
-site_url: https://mydomain.org/mysite
+site_name: XLeRobot 项目文档
+site_url: https://cx-1017.github.io/mkdocs-xlerobot/
+repo_url: https://github.com/Vector-Wangel/XLeRobot
+repo_name: XLeRobot
+edit_uri: ''
+
 theme:
   name: material
+  language: zh
+  palette:
+    # 日间模式
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换至夜间模式
+    # 夜间模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换至日间模式
+  features:
+    - navigation.instant # 即时加载
+    - navigation.tracking # 锚点跟踪
+    - navigation.tabs # 导航标签
+    - navigation.top # 返回顶部按钮
+    - navigation.indexes # 章节索引
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索高亮
+    - content.code.copy # 代码复制按钮
+    - content.action.edit # 编辑按钮
+    - content.action.view # 查看按钮
+  icon:
+    repo: fontawesome/brands/github
+
+# 插件配置
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
+      timezone: Asia/Shanghai
+
+# Markdown 扩展
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      title: 目录
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - markdown_callouts
+
+# 导航结构
+nav:
+  - 首页: index.md
+  - 项目概述:
+      - 项目介绍: overview/introduction.md
+      - 相关链接: overview/links.md
+      - 技术栈: overview/tech-stack.md
+  - 学习资源:
+      - Python 语法: learning/python.md
+      - 3D 建模: learning/3d-modeling.md
+      - 树莓派 & Linux: learning/raspberry-pi.md
+      - 计算机视觉: learning/computer-vision.md
+      - 电机与机器人: learning/motors-robotics.md
+      - 通讯技术: learning/communication.md
+      - 强化学习: learning/reinforcement-learning.md
+  - 硬件配置:
+      - 硬件清单: hardware/components.md
+      - 组装指南: hardware/assembly.md
+  - 软件配置:
+      - 环境搭建: software/environment.md
+      - 依赖安装: software/dependencies.md
+  - 项目开发:
+      - 快速开始: development/quickstart.md
+      - 代码结构: development/code-structure.md
+  - 常见问题: faq.md
+
+# 额外配置
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Vector-Wangel/XLeRobot
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/
+
+  # 页脚版权信息
+  copyright: Copyright &copy; 2025 XLeRobot Project
+
+# 样式自定义
+extra_css:
+  - stylesheets/extra.css
