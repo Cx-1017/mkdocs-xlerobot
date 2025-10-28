@@ -28,7 +28,7 @@ B 站视频：[【XLeRobot 家务展示 4 千成本（近期开卖）】](https:
 B 站视频：[【新版 Lerobot SO101 机械臂教程一站通：5. 机械臂校准及遥操作】](https://www.bilibili.com/video/BV1i2bazGEHo?vd_source=b313f11521a9a14487c38aa4fa1c5066)
 B 站视频对应讲义 ↑：[小小工程师](https://wiki.seeedstudio.com/cn/lerobot_so100m_new)
 
-![XLeRobot 示意图](../image/Pasted%20image%2020251006154201.png)
+![XLeRobot 示意图](image/Pasted%20image%2020251006154201.png)
 
 远程(两主两从)控制私人仓库：[so101 双臂远程遥操和 lekiwi 底盘的单独控制](https://github.com/brucecai-2001/lerobot_piper)
 ↑ 视频链接：[【【Xlerobot 复刻】家具与机器人无限的可能性】](https://www.bilibili.com/video/BV1ooGWzyE8a/?share_source=copy_web&vd_source=b313f11521a9a14487c38aa4fa1c5066)
