@@ -9,33 +9,32 @@ documents/
 ├── docs/                          # 文档源文件
 │   ├── index.md                  # 首页
 │   ├── XLeRobot项目分析.md        # 完整项目分析
-│   ├── link/                     # 相关链接
-│   │   └── link.md
-│   ├── python_learn/             # Python语法学习
-│   │   └── python_learn.md
-│   ├── 3D_SolidWork/             # 3D建模教程
+│   ├── 3D_SolidWork/
 │   │   └── 3D.md
-│   ├── Pi & Linux/               # 树莓派与Linux
-│   │   └── pi&Linux.md
-│   ├── Camera/                   # 计算机视觉
-│   │   └── Camera.md
-│   ├── Motor_Robot/              # 电机与机器人
-│   │   └── Motor_Robot.md
-│   ├── Communication/            # 通讯技术
-│   │   └── Communication.md
-│   ├── Model_Learn/              # 强化学习
-│   │   └── Model_learn.md
-│   ├── Attention/                # 注意事项
+│   ├── Attention/
 │   │   └── Attention.md
+│   ├── Camera/
+│   │   └── Camera.md
+│   ├── Communication/
+│   │   └── Communication.md
+│   ├── hardware_and_command/
+│   │   └── hardware_and_command.md
 │   ├── image/                    # 文档图片资源
-│   │   ├── 机械臂示意图.png
-│   │   ├── Miniconda条款.png
-│   │   ├── 运动学逆解路径.png
-│   │   ├── ManiSkill数据集.png
-│   │   └── ManiSkill.png
+│   │   ├── ... (众多图片)
+│   ├── link/
+│   │   └── link.md
+│   ├── Model_Learn/
+│   │   └── Model_learn.md
+│   ├── Motor_Robot/
+│   │   └── Motor_Robot.md
+│   ├── Pi & Linux/
+│   │   └── pi&Linux.md
+│   ├── python_learn/
+│   │   └── python_learn.md
 │   └── stylesheets/              # 自定义样式
 │       └── extra.css
 ├── mkdocs.yml                    # MkDocs 配置文件
+├── README.md                     # 项目说明文件
 ├── requirements.txt              # Python 依赖
 └── site/                         # 构建输出（自动生成）
 ```
