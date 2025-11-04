@@ -317,6 +317,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../hardware_and_command/hardware_and_command/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  硬件连接与常用命令
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -671,7 +690,7 @@
         <li class="md-nav__item">
   <a href="#mujoco" class="md-nav__link">
     <span class="md-ellipsis">
-      MuJoCo
+      一、MuJoCo
     </span>
   </a>
   
@@ -680,9 +699,69 @@
         <li class="md-nav__item">
   <a href="#maniskill-sapie" class="md-nav__link">
     <span class="md-ellipsis">
-      ManiSkill + SAPIE
+      二、ManiSkill + SAPIE
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、强化学习训练流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、强化学习训练流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 准备工作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 采集数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 回播数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 训练
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 评估
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -746,6 +825,28 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware_and_command/hardware_and_command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬件连接与常用命令
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -763,8 +864,8 @@
 
 
 <h1 id="_1">强化学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="mujoco">MuJoCo<a class="headerlink" href="#mujoco" title="Permanent link">&para;</a></h2>
-<h2 id="maniskill-sapie">ManiSkill + SAPIE<a class="headerlink" href="#maniskill-sapie" title="Permanent link">&para;</a></h2>
+<h2 id="mujoco">一、MuJoCo<a class="headerlink" href="#mujoco" title="Permanent link">&para;</a></h2>
+<h2 id="maniskill-sapie">二、ManiSkill + SAPIE<a class="headerlink" href="#maniskill-sapie" title="Permanent link">&para;</a></h2>
 <p>这里涉及 ubuntu 配置 nividia 驱动，有以下博客可以参考：
 <a href="https://zhuanlan.zhihu.com/p/691711768">Ubuntu 安装 cuda+cudnn 保姆级教程记录</a>
 <a href="https://developer.nvidia.com/cudnn-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">cuDnn 下载官方网站</a></p>
@@ -785,6 +886,125 @@
 </ul>
 <p>如果需要开始控制机器人关节操作，先点击上图中右侧的终端，使其处于被选中状态，这个时候键盘按键对于关节控制操作，移动操作暂时失效。如需再移动点击其他地方不选中终端即可。</p>
 <p>使用期间可以点击左上角的<code>Camera</code>，将<code>None</code>切换为头部或者手臂均可。</p>
+<h2 id="_2">三、强化学习训练流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>主要参考视频 &amp; 博客：
+1. <a href="https://www.bilibili.com/video/BV1enHizcEk6?vd_source=b313f11521a9a14487c38aa4fa1c5066">【LeRobot 训练 SO-101 机械臂 ACT 模型全流程解析】</a></p>
+<ol>
+<li>
+<p><a href="https://wiki.seeedstudio.com/cn/lerobot_so100m_new/#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C%E9%87%87%E9%9B%86">seeed studio SO101教学</a></p>
+</li>
+<li>
+<p><a href="https://huggingface.co/docs/lerobot/il_robots">HuggingFace lerobot教学</a></p>
+</li>
+</ol>
+<h3 id="31">3.1 准备工作<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>通过在[[../hardware_and_command/hardware_and_command.md]]中配置遥操验证摄像头位置和主从臂是否可以跟随运行。</p>
+<p>注意这里的 left 是机械臂的摄像头，front 是深度相机 RGB 摄像头。</p>
+<p>不过通过我自己的训练效果看，如果只是一个机械臂的训练可以，将两另一个机械臂的摄像头作为<code>side</code>摄像头替换掉<code>left</code>摄像头，其中<code>side</code>视角需要从侧面看到整个从臂(注意环境不要太杂)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>lerobot-teleoperate<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>--robot.type<span class="o">=</span>so101_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>--robot.port<span class="o">=</span>/dev/ttyACM0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>--robot.cameras<span class="o">=</span><span class="s2">&quot;{ left: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}, front: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>--teleop.type<span class="o">=</span>so101_leader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>--teleop.port<span class="o">=</span>/dev/ttyACM1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>--teleop.id<span class="o">=</span>my_awesome_leader_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>--display_data<span class="o">=</span><span class="nb">true</span>
+</span></code></pre></div>
+<h3 id="32">3.2 采集数据<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>同理根据以下命令采集数据集</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 采集数据集，并保存在本地</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>lerobot-record<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>--robot.type<span class="o">=</span>so101_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span>--robot.port<span class="o">=</span>/dev/ttyACM0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>--robot.cameras<span class="o">=</span><span class="s2">&quot;{ left: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}, front: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span>--teleop.type<span class="o">=</span>so101_leader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span>--teleop.port<span class="o">=</span>/dev/ttyACM1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span>--teleop.id<span class="o">=</span>my_awesome_leader_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span>--display_data<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span>--dataset.repo_id<span class="o">=</span>CX1103/test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span>--dataset.num_episodes<span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span>--dataset.single_task<span class="o">=</span><span class="s2">&quot;Grab the black cube&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span>--dataset.push_to_hub<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span>--dataset.episode_time_s<span class="o">=</span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span>--dataset.reset_time_s<span class="o">=</span><span class="m">30</span>
+</span></code></pre></div>
+<p>需要注意的有：
+- 注意你的主从臂端口是否对应
+- <code>--dataset.repo_id=CX1103/test</code> 这个路径需要你自己记住，随后运行完，会在你的<code>~/.cache/huggingface/lerobot</code>路径下创建对应文件夹，在该文件夹下 <code>CX1103/test</code>就会记录你录制的数据集，具体可能为<code>~/.cache/huggingface/lerobot</code>
+- 这里的<code>--dataset.num_episodes=6</code>，参数不要选择太大，因为这里涉及到后面使用 GPU 训练，如果数据太多，现存不足就会无法训练。经过测试在我使用数量 5 和 6 时，训练时显卡占用情况如下：
+<img alt="alt text" src="../../image/5epsiode%E5%8D%A0%E7%94%A8.png" />
+<img alt="alt text" src="../../image/6epsiode%E5%8D%A0%E7%94%A8.png" /></p>
+<p>经过测试在采集每个数据集的时候，每个episode都只抓去一个小范围物体，且每个episode的范围都不同，最终训练出来的效果范化效果和准确性更高。</p>
+<h3 id="33">3.3 回播数据<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>这里有两种方式，一个是上传HuggingFace的配置方式，一种是存于本地的方式。注意这里的<code>--dataset.repo_id</code>需要与你前面训练时候填写的对应，不然检索不到</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>lerobot-replay<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>--robot.type<span class="o">=</span>so101_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>--robot.port<span class="o">=</span>/dev/ttyACM0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span>--dataset.repo_id<span class="o">=</span><span class="si">${</span><span class="nv">HF_USER</span><span class="si">}</span>/record-test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span>--dataset.episode<span class="o">=</span><span class="m">0</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>lerobot-replay<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span>--robot.type<span class="o">=</span>so101_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span>--robot.port<span class="o">=</span>/dev/ttyACM0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span>--dataset.repo_id<span class="o">=</span>CX1103/test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span>--dataset.episode<span class="o">=</span><span class="m">0</span>
+</span></code></pre></div>
+<h3 id="34">3.4 训练<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p>同样提供两种训练的命令，这里以我的电脑为例RTX 3060 6G显存，训练6个episode采集数据，10w步需要8.3小时左右</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span><span class="si">${</span><span class="nv">HF_USER</span><span class="si">}</span>/so101_test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--policy.type<span class="o">=</span>act<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--output_dir<span class="o">=</span>outputs/train/act_so101_test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--job_name<span class="o">=</span>act_so101_test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>--policy.device<span class="o">=</span>cuda<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>--wandb.enable<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span>--policy.repo_id<span class="o">=</span><span class="si">${</span><span class="nv">HF_USER</span><span class="si">}</span>/my_policy
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>lerobot-train<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>CX1102/test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span>--policy.type<span class="o">=</span>act<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span>--output_dir<span class="o">=</span>outputs/train/act_so101_test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span>--job_name<span class="o">=</span>act_so101_test<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span>--policy.device<span class="o">=</span>cuda<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span>--wandb.enable<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span>--policy.push_to_hub<span class="o">=</span>false<span class="se">\</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span>--policy.repo_id<span class="o">=</span>CX1102/act_so101_test
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># --steps=100000默认步数为10w</span>
+</span></code></pre></div>
+<h3 id="35">3.5 评估<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>这里的<code>--dataset.repo_id</code>是评估后，评估文件的存放位置，不是前面采集数据一模一样的路径</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>lerobot-record<span class="w">  </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--robot.type<span class="o">=</span>so100_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--robot.port<span class="o">=</span>/dev/ttyACM1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--robot.cameras<span class="o">=</span><span class="s2">&quot;{ up: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}, side: {type: intelrealsense, serial_number_or_name: 233522074606, width: 640, height: 480, fps: 30}}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>--display_data<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>CX1102/eval_so100<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>--dataset.single_task<span class="o">=</span><span class="s2">&quot;Put lego brick into the transparent box&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="c1"># &lt;- Teleop optional if you want to teleoperate in between episodes \</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="c1"># --teleop.type=so100_leader \</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="c1"># --teleop.port=/dev/ttyACM0 \</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="c1"># --teleop.id=my_awesome_leader_arm \</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span>--policy.path<span class="o">=</span>CX1102/act_so101_test
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>lerobot-record<span class="w">  </span><span class="se">\</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span>--robot.type<span class="o">=</span>so101_follower<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span>--robot.port<span class="o">=</span>/dev/ttyACM0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">  </span>--robot.cameras<span class="o">=</span><span class="s2">&quot;{ left: {type: opencv, index_or_path: 2, width: 640, height: 480, fps: 30}, front: {type: opencv, index_or_path: 8, width: 640, height: 480, fps: 30}}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">  </span>--robot.id<span class="o">=</span>my_awesome_follower_arm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">  </span>--display_data<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">  </span>--dataset.repo_id<span class="o">=</span>CX1102/eval_so101<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">  </span>--dataset.single_task<span class="o">=</span><span class="s2">&quot;Put lego brick into the transparent box&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">  </span>--policy.path<span class="o">=</span>outputs/train/act_so101_test/checkpoints/last/pretrained_model<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">  </span>--dataset.push_to_hub<span class="o">=</span><span class="nb">false</span>
+</span></code></pre></div>
+<p>注意该评估会剧烈抖动电机，很容易造成机械臂过热，所以请一定不要连续评估模型！</p>
 
 
 
@@ -807,7 +1027,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年10月28日 23:50:46 CST">2025年10月28日 23:50:46</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年11月4日 13:15:57 CST">2025年11月4日 13:15:57</span>
   </span>
 
     
