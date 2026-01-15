@@ -104,6 +104,7 @@ nav:
   - 注意事项: Attention/Attention.md
   - 完整项目分析: XLeRobot项目分析.md
   - 硬件连接与常用命令: hardware_and_command/hardware_and_command.md
+  - 远程控制与监控: remote_control/remote_control.md
 
 # 额外配置
 extra:
