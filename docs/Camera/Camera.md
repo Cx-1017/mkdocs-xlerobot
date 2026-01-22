@@ -18,3 +18,40 @@ Yolo 环境配置：[Yolov11 环境配置](https://xiaolian.blog.csdn.net/articl
 Intel RealSense D415：[github SDK](https://github.com/IntelRealSense/librealsense/releases)
 
 官网资料：[环境配置](https://dev.intelrealsense.com/docs/supported-platforms-and-languages?_ga=2.156964472.291999339.1661862516-1920419538.1609727088)
+
+## 奥菲中光Orbbec SDK配置
+
+官方链接：
+developer.orbbec.com.cn/develop_details.html?id=1
+github.com/orbbec/OrbbecSDK/releases
+
+推荐配置链接：
+可视化工具sdk:https://github.com/orbbec/OrbbecSDK_v2
+python sdk:https://wiki.seeedstudio.com/cn/yolov11_with_depth_camera/
+
+> [Note!]
+> 其中在配置python sdk时，进行到Cmake步骤可能会出现报错，因为lerobot的环境为Python3.10，而教程给的是3.8，所以你可以通过在终端输入以下命令完成Cmake步骤：
+
+```bash
+
+# 清理并重新配置
+rm -rf build
+mkdir build && cd build
+
+
+# 获取 conda 环境中 Python 的路径
+python_path=$(which python)
+python_dir=$(dirname $(dirname $python_path))
+
+# 使用这些路径配置 CMake
+cmake \
+  -Dpybind11_DIR=`pybind11-config --cmakedir` \
+  -DPython3_EXECUTABLE=$python_path \
+  -DPython3_INCLUDE_DIR=$python_dir/include/python3.10 \
+  -DPython3_LIBRARY=$python_dir/lib/libpython3.10.so \
+  ..
+
+# 编译
+make -j4
+make install
+```
