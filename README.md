@@ -30,7 +30,7 @@ mkdocs serve
 
 ```bash
 # 一键部署到 gh-pages 分支
-mkdocs gh-deploy
+mkdocs gh-deploy --force
 ```
 
 该命令会自动：
